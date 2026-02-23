@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job | Tracker</title>
+
+    <!-- Tailwind + DaisyUI  -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@latest/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- fontaswam-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+</head>
+
+<body class="bg-base-200  ">
+    <div class="max-w-7xl mx-auto p-6">
+
+        <h1 class="text-3xl font-bold mb-6">Dashboard</h1>
+
+        <div class="grid md:grid-cols-3 gap-6 mb-10">
+
+            <div class="card bg-primary text-primary-content shadow-xl">
+                <div class="card-body">
+                    <h2 class="card-title">Total Jobs</h2>
+                    <p id="totalCount" class="text-3xl font-bold">0</p>
+                </div>
+            </div>
+
+            <div class="card bg-success text-white shadow-xl">
+                <div class="card-body">
+                    <h2 class="card-title">Interview</h2>
+                    <p id="interviewCount" class="text-3xl font-bold">0</p>
+                </div>
+            </div>
+
+            <div class="card bg-error text-white shadow-xl">
+                <div class="card-body">
+                    <h2 class="card-title">Rejected</h2>
+                    <p id="rejectedCount" class="text-3xl font-bold">0</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Available Jobs Section -->
+    <div class="bg-gray-100">
+
+        <div class="max-w-6xl mx-auto py-10 px-6">
+
+            <!-- Page Title -->
+            <h1 class="text-3xl font-bold text-gray-800 mb-8">
+                Job Application Tracker
+            </h1>
+
+            <!-- Dashboard -->
+            <div class="grid md:grid-cols-3 gap-6 mb-10">
+
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <p class="text-sm text-gray-500">Total</p>
+                    <h2 class="text-2xl font-bold text-gray-800">8</h2>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <p class="text-sm text-gray-500">Interview</p>
+                    <h2 class="text-2xl font-bold text-green-600">0</h2>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <p class="text-sm text-gray-500">Rejected</p>
+                    <h2 class="text-2xl font-bold text-red-600">0</h2>
+                </div>
+
+            </div>
+
+            <!-- Available Jobs Section -->
+            <div class="bg-white p-6 rounded-lg shadow-sm">
+
+                <!-- Header -->
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-lg font-semibold text-gray-700">
+                        Available Jobs
+                    </h2>
+                    <span class="text-sm text-gray-500">8 jobs</span>
+                </div>
+
+                <!-- Tabs -->
+                <div class="flex gap-2 mb-6">
+                    <button class="px-4 py-1 text-sm rounded-md bg-blue-600 text-white">
+                        All
+                    </button>
+                    <button class="px-4 py-1 text-sm rounded-md bg-gray-100 text-gray-600">
+                        Interview
+                    </button>
+                    <button class="px-4 py-1 text-sm rounded-md bg-gray-100 text-gray-600">
+                        Rejected
+                    </button>
+                </div>
+
+                <!-- Job Card -->
+                <div class="space-y-6">
+
+                    <div class="border rounded-lg p-6 relative">
+
+                        <!-- Delete -->
+                        <button
+                            class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-md hover:bg-red-50 text-gray-400 hover:text-red-600 transition">
+                            <i class="fa-solid fa-trash text-sm"></i>
+                        </button>
+
+                        <h3 class="font-semibold text-gray-800">
+                            Mobile First Corp
+                        </h3>
+
+                        <p class="text-sm text-gray-500 mb-2">
+                            React Native Developer
+                        </p>
+
+                        <p class="text-sm text-gray-500 mb-3">
+                            Remote • Full-time • $130,000 - $175,000
+                        </p>
+
+                        <span
+                            class="inline-block text-xs px-3 py-1 rounded-md border border-blue-500 text-blue-600 mb-3">
+                            NOT APPLIED
+                        </span>
+
+                        <p class="text-sm text-gray-600 mb-4">
+                            Build cross-platform mobile applications using React Native.
+                            Work on products used by millions of users worldwide.
+                        </p>
+
+                        <div class="flex gap-3">
+                            <button
+                                class="px-4 py-1 text-sm border border-green-500 text-green-600 rounded-md hover:bg-green-50">
+                                INTERVIEW
+                            </button>
+                            <button
+                                class="px-4 py-1 text-sm border border-red-500 text-red-600 rounded-md hover:bg-red-50">
+                                REJECTED
+                            </button>
+                        </div>
+
+                    </div>
+
+
+                    <div class="border rounded-lg p-6 relative">
+
+                        <!-- Delete -->
+                        <button
+                            class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-md hover:bg-red-50 text-gray-400 hover:text-red-600 transition">
+                            <i class="fa-solid fa-trash text-sm"></i>
+                        </button>
+
+                        <h3 class="font-semibold text-gray-800">
+                            WebFlow Agency
+                        </h3>
+
+                        <p class="text-sm text-gray-500 mb-2">
+                            Web Designer & Developer
+                        </p>
+
+                        <div class="flex items-center text-sm text-gray-500 gap-2 mb-3">
+                            <span>Remote</span>
+                            <span>•</span>
+                            <span>Full-time</span>
+                            <span>•</span>
+                            <span>$130,000 - $175,000</span>
+                        </div>
+
+                        <span
+                            class="inline-block text-xs px-3 py-1 rounded-md border border-blue-500 text-blue-600 mb-3">
+                            NOT APPLIED
+                        </span>
+
+                        <p class="text-sm text-gray-600 mb-4">
+                            Build cross-platform mobile applications using React Native.
+                            Work on products used by millions of users worldwide.
+                        </p>
+
+                        <div class="flex gap-3">
+                            <button
+                                class="px-4 py-1 text-sm border border-green-500 text-green-600 rounded-md hover:bg-green-50">
+                                INTERVIEW
+                            </button>
+                            <button
+                                class="px-4 py-1 text-sm border border-red-500 text-red-600 rounded-md hover:bg-red-50">
+                                REJECTED
+                            </button>
+                        </div>
+
+                    </div>
+
+                    <div class="border rounded-lg p-6 relative">
+
+                        <!-- Delete -->
+                        <button
+                            class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-md hover:bg-red-50 text-gray-400 hover:text-red-600 transition">
+                            <i class="fa-solid fa-trash text-sm"></i>
+                        </button>
+
+                        <h3 class="font-semibold text-gray-800">
+                            Mobile First Corp
+                        </h3>
+
+                        <p class="text-sm text-gray-500 mb-2">
+                            React Native Developer
+                        </p>
+
+                        <p class="text-sm text-gray-500 mb-3">
+                            Remote • Full-time • $130,000 - $175,000
+                        </p>
+
+                        <span
+                            class="inline-block text-xs px-3 py-1 rounded-md border border-blue-500 text-blue-600 mb-3">
+                            NOT APPLIED
+                        </span>
+
+                        <p class="text-sm text-gray-600 mb-4">
+                            Build cross-platform mobile applications using React Native.
+                            Work on products used by millions of users worldwide.
+                        </p>
+
+                        <div class="flex gap-3">
+                            <button
+                                class="px-4 py-1 text-sm border border-green-500 text-green-600 rounded-md hover:bg-green-50">
+                                INTERVIEW
+                            </button>
+                            <button
+                                class="px-4 py-1 text-sm border border-red-500 text-red-600 rounded-md hover:bg-red-50">
+                                REJECTED
+                            </button>
+                        </div>
+
+                    </div>
+
+                    <div class="border rounded-lg p-6 relative">
+
+                        <!-- Delete -->
+                        <button
+                            class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-md hover:bg-red-50 text-gray-400 hover:text-red-600 transition">
+                            <i class="fa-solid fa-trash text-sm"></i>
+                        </button>
+
+                        <h3 class="font-semibold text-gray-800">
+                            Mobile First Corp
+                        </h3>
+
+                        <p class="text-sm text-gray-500 mb-2">
+                            React Native Developer
+                        </p>
+
+                        <p class="text-sm text-gray-500 mb-3">
+                            Remote • Full-time • $130,000 - $175,000
+                        </p>
+
+                        <span
+                            class="inline-block text-xs px-3 py-1 rounded-md border border-blue-500 text-blue-600 mb-3">
+                            NOT APPLIED
+                        </span>
+
+                        <p class="text-sm text-gray-600 mb-4">
+                            Build cross-platform mobile applications using React Native.
+                            Work on products used by millions of users worldwide.
+                        </p>
+
+                        <div class="flex gap-3">
+                            <button
+                                class="px-4 py-1 text-sm border border-green-500 text-green-600 rounded-md hover:bg-green-50">
+                                INTERVIEW
+                            </button>
+                            <button
+                                class="px-4 py-1 text-sm border border-red-500 text-red-600 rounded-md hover:bg-red-50">
+                                REJECTED
+                            </button>
+                        </div>
+
+                    </div>
+
+                    <div class="border rounded-lg p-6 relative">
+
+                        <!-- Delete -->
+                        <button
+                            class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-md hover:bg-red-50 text-gray-400 hover:text-red-600 transition">
+                            <i class="fa-solid fa-trash text-sm"></i>
+                        </button>
+
+                        <h3 class="font-semibold text-gray-800">
+                            Mobile First Corp
+                        </h3>
+
+                        <p class="text-sm text-gray-500 mb-2">
+                            React Native Developer
+                        </p>
+
+                        <p class="text-sm text-gray-500 mb-3">
+                            Remote • Full-time • $130,000 - $175,000
+                        </p>
+
+                        <span
+                            class="inline-block text-xs px-3 py-1 rounded-md border border-blue-500 text-blue-600 mb-3">
+                            NOT APPLIED
+                        </span>
+
+                        <p class="text-sm text-gray-600 mb-4">
+                            Build cross-platform mobile applications using React Native.
+                            Work on products used by millions of users worldwide.
+                        </p>
+
+                        <div class="flex gap-3">
+                            <button
+                                class="px-4 py-1 text-sm border border-green-500 text-green-600 rounded-md hover:bg-green-50">
+                                INTERVIEW
+                            </button>
+                            <button
+                                class="px-4 py-1 text-sm border border-red-500 text-red-600 rounded-md hover:bg-red-50">
+                                REJECTED
+                            </button>
+                        </div>
+
+                    </div>
+
+                    <div class="border rounded-lg p-6 relative">
+
+                        <!-- Delete -->
+                        <button
+                            class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-md hover:bg-red-50 text-gray-400 hover:text-red-600 transition">
+                            <i class="fa-solid fa-trash text-sm"></i>
+                        </button>
+
+                        <h3 class="font-semibold text-gray-800">
+                            Mobile First Corp
+                        </h3>
+
+                        <p class="text-sm text-gray-500 mb-2">
+                            React Native Developer
+                        </p>
+
+                        <p class="text-sm text-gray-500 mb-3">
+                            Remote • Full-time • $130,000 - $175,000
+                        </p>
+
+                        <span
+                            class="inline-block text-xs px-3 py-1 rounded-md border border-blue-500 text-blue-600 mb-3">
+                            NOT APPLIED
+                        </span>
+
+                        <p class="text-sm text-gray-600 mb-4">
+                            Build cross-platform mobile applications using React Native.
+                            Work on products used by millions of users worldwide.
+                        </p>
+
+                        <div class="flex gap-3">
+                            <button
+                                class="px-4 py-1 text-sm border border-green-500 text-green-600 rounded-md hover:bg-green-50">
+                                INTERVIEW
+                            </button>
+                            <button
+                                class="px-4 py-1 text-sm border border-red-500 text-red-600 rounded-md hover:bg-red-50">
+                                REJECTED
+                            </button>
+                        </div>
+
+                    </div>
+
+                    <div class="border rounded-lg p-6 relative">
+
+                        <!-- Delete -->
+                        <button
+                            class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-md hover:bg-red-50 text-gray-400 hover:text-red-600 transition">
+                            <i class="fa-solid fa-trash text-sm"></i>
+                        </button>
+
+                        <h3 class="font-semibold text-gray-800">
+                            Mobile First Corp
+                        </h3>
+
+                        <p class="text-sm text-gray-500 mb-2">
+                            React Native Developer
+                        </p>
+
+                        <p class="text-sm text-gray-500 mb-3">
+                            Remote • Full-time • $130,000 - $175,000
+                        </p>
+
+                        <span
+                            class="inline-block text-xs px-3 py-1 rounded-md border border-blue-500 text-blue-600 mb-3">
+                            NOT APPLIED
+                        </span>
+
+                        <p class="text-sm text-gray-600 mb-4">
+                            Build cross-platform mobile applications using React Native.
+                            Work on products used by millions of users worldwide.
+                        </p>
+
+                        <div class="flex gap-3">
+                            <button
+                                class="px-4 py-1 text-sm border border-green-500 text-green-600 rounded-md hover:bg-green-50">
+                                INTERVIEW
+                            </button>
+                            <button
+                                class="px-4 py-1 text-sm border border-red-500 text-red-600 rounded-md hover:bg-red-50">
+                                REJECTED
+                            </button>
+                        </div>
+
+                    </div>
+
+                    <div class="border rounded-lg p-6 relative">
+
+                        <!-- Delete -->
+                        <button
+                            class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-md hover:bg-red-50 text-gray-400 hover:text-red-600 transition">
+                            <i class="fa-solid fa-trash text-sm"></i>
+                        </button>
+
+                        <h3 class="font-semibold text-gray-800">
+                            Mobile First Corp
+                        </h3>
+                        <p class="text-sm text-gray-500 mb-2">
+                            React Native Developer
+                        </p>
+                        <p class="text-sm text-gray-500 mb-3">
+                            Remote • Full-time • $130,000 - $175,000
+                        </p>
+                        <span
+                            class="inline-block text-xs px-3 py-1 rounded-md border border-blue-500 text-blue-600 mb-3">
+                            NOT APPLIED
+                        </span>
+
+                        <p class="text-sm text-gray-600 mb-4">
+                            Build cross-platform mobile applications using React Native.
+                            Work on products used by millions of users worldwide.
+                        </p>
+
+                        <div class="flex gap-3">
+                            <button
+                                class="px-4 py-1 text-sm border border-green-500 text-green-600 rounded-md hover:bg-green-50">
+                                INTERVIEW
+                            </button>
+                            <button
+                                class="px-4 py-1 text-sm border border-red-500 text-red-600 rounded-md hover:bg-red-50">
+                                REJECTED
+                            </button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+</body>
+
+<script src="script.js"></script>
+</body>
+
+</html>
