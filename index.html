@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" >
 
 <head>
     <meta charset="UTF-8" />
@@ -13,42 +13,21 @@
     <!-- fontaswam-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
 
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
 
 </head>
 
-<body class="bg-base-200  ">
-    <div class="max-w-7xl mx-auto p-6">
+<body class="bg-base-100  ">
 
-        <h1 class="text-3xl font-bold mb-6">Dashboard</h1>
-
-        <div class="grid md:grid-cols-3 gap-6 mb-10">
-
-            <div class="card bg-primary text-primary-content shadow-xl">
-                <div class="card-body">
-                    <h2 class="card-title">Total Jobs</h2>
-                    <p id="totalCount" class="text-3xl font-bold">0</p>
-                </div>
-            </div>
-
-            <div class="card bg-success text-white shadow-xl">
-                <div class="card-body">
-                    <h2 class="card-title">Interview</h2>
-                    <p id="interviewCount" class="text-3xl font-bold">0</p>
-                </div>
-            </div>
-
-            <div class="card bg-error text-white shadow-xl">
-                <div class="card-body">
-                    <h2 class="card-title">Rejected</h2>
-                    <p id="rejectedCount" class="text-3xl font-bold">0</p>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
 
     <!-- Available Jobs Section -->
     <div class="bg-gray-100">
@@ -60,22 +39,25 @@
                 Job Application Tracker
             </h1>
 
+
             <!-- Dashboard -->
             <div class="grid md:grid-cols-3 gap-6 mb-10">
 
                 <div class="bg-white p-6 rounded-lg shadow-sm">
                     <p class="text-sm text-gray-500">Total</p>
-                    <h2 class="text-2xl font-bold text-gray-800">8</h2>
+                    <h2 id="totalCount" class="text-2xl font-bold text-gray-800">8</h2>
+
                 </div>
+                
 
                 <div class="bg-white p-6 rounded-lg shadow-sm">
                     <p class="text-sm text-gray-500">Interview</p>
-                    <h2 class="text-2xl font-bold text-green-600">0</h2>
+                    <h2 id="interviewCount" class="text-2xl font-bold text-green-600">0</h2>
                 </div>
 
                 <div class="bg-white p-6 rounded-lg shadow-sm">
                     <p class="text-sm text-gray-500">Rejected</p>
-                    <h2 class="text-2xl font-bold text-red-600">0</h2>
+                    <h2 id="rejectedCount" class="text-2xl font-bold text-red-600">0</h2>
                 </div>
 
             </div>
@@ -83,35 +65,37 @@
             <!-- Available Jobs Section -->
             <div class="bg-white p-6 rounded-lg shadow-sm">
 
-                <!-- Header -->
+                <!-- Head -->
                 <div class="flex justify-between items-center mb-4">
                     <h2 class="text-lg font-semibold text-gray-700">
                         Available Jobs
                     </h2>
-                    <span class="text-sm text-gray-500">8 jobs</span>
+                    <span id="jobCountLabel" class="text-sm text-gray-500">8 jobs</span>
                 </div>
-
-                <!-- Tabs -->
                 <div class="flex gap-2 mb-6">
-                    <button class="px-4 py-1 text-sm rounded-md bg-blue-600 text-white">
+                    <button id="allTab" class="tab px-4 py-1 text-sm font-semibold rounded-md bg-blue-600 text-white">
                         All
                     </button>
-                    <button class="px-4 py-1 text-sm rounded-md bg-gray-100 text-gray-600">
+
+                    <button id="interviewTab"
+                        class="tab px-4 py-1 text-sm font-semibold rounded-md bg-gray-100 text-gray-600">
                         Interview
                     </button>
-                    <button class="px-4 py-1 text-sm rounded-md bg-gray-100 text-gray-600">
+
+                    <button id="rejectedTab"
+                        class="tab px-4 py-1 text-sm font-semibold rounded-md bg-gray-100 text-gray-600">
                         Rejected
                     </button>
                 </div>
 
-                <!-- Job Card -->
+                <!-- Job-card -->
                 <div class="space-y-6">
 
-                    <div class="border rounded-lg p-6 relative">
+                    <div class="job-card border rounded-lg p-6 relative" data-status="all">
 
-                        <!-- Delete -->
+                        <!-- Delete-btn -->
                         <button
-                            class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-md hover:bg-red-50 text-gray-400 hover:text-red-600 transition">
+                            class="delete-btn absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-md hover:bg-red-50 text-gray-400 hover:text-red-600 transition">
                             <i class="fa-solid fa-trash text-sm"></i>
                         </button>
 
@@ -123,12 +107,20 @@
                             React Native Developer
                         </p>
 
-                        <p class="text-sm text-gray-500 mb-3">
-                            Remote • Full-time • $130,000 - $175,000
-                        </p>
+                        <ul class="flex items-center text-sm text-gray-500 mb-3">
+                            <li class="flex items-center">
+                                Remote
+                                <span class="mx-2 w-1 h-1 bg-gray-500 rounded-full inline-block"></span>
+                            </li>
+                            <li class="flex items-center">
+                                Full-time
+                                <span class="mx-2 w-1 h-1 bg-gray-500 rounded-full inline-block"></span>
+                            </li>
+                            <li>$113,000 - $174,000</li>
+                        </ul>
 
                         <span
-                            class="inline-block text-xs px-3 py-1 rounded-md border border-blue-500 text-blue-600 mb-3">
+                            class="status-badge inline-block text-sm px-4 py-2 font-semibold rounded-md bg-gray-100 text-gray-800 mb-3">
                             NOT APPLIED
                         </span>
 
@@ -139,11 +131,12 @@
 
                         <div class="flex gap-3">
                             <button
-                                class="px-4 py-1 text-sm border border-green-500 text-green-600 rounded-md hover:bg-green-50">
+                                class="interview-btn px-4 py-2 text-sm font-semibold border border-green-500 text-green-600 rounded-md active:bg-green-600 active:text-white">
                                 INTERVIEW
                             </button>
+
                             <button
-                                class="px-4 py-1 text-sm border border-red-500 text-red-600 rounded-md hover:bg-red-50">
+                                class="rejected-btn px-4 py-2 text-sm font-semibold border border-red-500 text-red-600 rounded-md active:bg-red-600 active:text-white">
                                 REJECTED
                             </button>
                         </div>
@@ -151,11 +144,11 @@
                     </div>
 
 
-                    <div class="border rounded-lg p-6 relative">
+                    <div class="job-card border rounded-lg p-6 relative" data-status="all">
 
-                        <!-- Delete -->
-                        <button
-                            class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-md hover:bg-red-50 text-gray-400 hover:text-red-600 transition">
+                        <!-- Delete-btn -->
+                        <button class=" delete-btn absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-md hover:bg-red-50 text-gray-400
+                             hover:text-red-600 transition">
                             <i class="fa-solid fa-trash text-sm"></i>
                         </button>
 
@@ -167,286 +160,358 @@
                             Web Designer & Developer
                         </p>
 
-                        <div class="flex items-center text-sm text-gray-500 gap-2 mb-3">
-                            <span>Remote</span>
-                            <span>•</span>
-                            <span>Full-time</span>
-                            <span>•</span>
-                            <span>$130,000 - $175,000</span>
-                        </div>
+                        <ul class="flex items-center text-sm text-gray-500 mb-3">
+                            <li class="flex items-center">
+                                Remote
+                                <span class="mx-2 w-1 h-1 bg-gray-500 rounded-full inline-block"></span>
+                            </li>
+                            <li class="flex items-center">
+                                Full-time
+                                <span class="mx-2 w-1 h-1 bg-gray-500 rounded-full inline-block"></span>
+                            </li>
+                            <li>$11,000 - $17,000</li>
+                        </ul>
 
                         <span
-                            class="inline-block text-xs px-3 py-1 rounded-md border border-blue-500 text-blue-600 mb-3">
+                            class="status-badge inline-block text-sm px-4 py-2 font-semibold rounded-md bg-gray-100 text-gray-800 mb-3">
                             NOT APPLIED
                         </span>
 
                         <p class="text-sm text-gray-600 mb-4">
-                            Build cross-platform mobile applications using React Native.
-                            Work on products used by millions of users worldwide.
+                            Create stunning web experience for high-profile clients.Must have protfolio and experience
+                            with modern web design trends
                         </p>
 
                         <div class="flex gap-3">
                             <button
-                                class="px-4 py-1 text-sm border border-green-500 text-green-600 rounded-md hover:bg-green-50">
+                                class="interview-btn px-4 py-2 text-sm font-semibold border border-green-500 text-green-600 rounded-md active:bg-green-600 active:text-white">
                                 INTERVIEW
                             </button>
+
                             <button
-                                class="px-4 py-1 text-sm border border-red-500 text-red-600 rounded-md hover:bg-red-50">
+                                class="rejected-btn px-4 py-2 text-sm font-semibold border border-red-500 text-red-600 rounded-md active:bg-red-600 active:text-white">
                                 REJECTED
                             </button>
                         </div>
 
                     </div>
 
-                    <div class="border rounded-lg p-6 relative">
+                    <div class="job-card border rounded-lg p-6 relative" data-status="all">
 
                         <!-- Delete -->
                         <button
-                            class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-md hover:bg-red-50 text-gray-400 hover:text-red-600 transition">
+                            class="delete-btn absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-md hover:bg-red-50 text-gray-400 hover:text-red-600 transition">
                             <i class="fa-solid fa-trash text-sm"></i>
                         </button>
 
                         <h3 class="font-semibold text-gray-800">
-                            Mobile First Corp
+                            DataViz Solutions
                         </h3>
 
                         <p class="text-sm text-gray-500 mb-2">
-                            React Native Developer
+                            Data vizualization specialist
                         </p>
 
-                        <p class="text-sm text-gray-500 mb-3">
-                            Remote • Full-time • $130,000 - $175,000
-                        </p>
+                        <ul class="flex items-center text-sm text-gray-500 mb-3">
+                            <li class="flex items-center">
+                                Remote
+                                <span class="mx-2 w-1 h-1 bg-gray-500 rounded-full inline-block"></span>
+                            </li>
+                            <li class="flex items-center">
+                                Full-time
+                                <span class="mx-2 w-1 h-1 bg-gray-500 rounded-full inline-block"></span>
+                            </li>
+                            <li>$124,000 - $158,000</li>
+                        </ul>
 
                         <span
-                            class="inline-block text-xs px-3 py-1 rounded-md border border-blue-500 text-blue-600 mb-3">
+                            class="status-badge inline-block text-sm px-4 py-2 font-semibold rounded-md bg-gray-100 text-gray-800 mb-3">
                             NOT APPLIED
                         </span>
 
                         <p class="text-sm text-gray-600 mb-4">
-                            Build cross-platform mobile applications using React Native.
-                            Work on products used by millions of users worldwide.
+                            Transform complex data into meaningful visualizations.
+                            Required skills: D3.js, React, and strong analytical thinking.
                         </p>
 
                         <div class="flex gap-3">
                             <button
-                                class="px-4 py-1 text-sm border border-green-500 text-green-600 rounded-md hover:bg-green-50">
+                                class="interview-btn px-4 py-2 text-sm font-semibold border border-green-500 text-green-600 rounded-md active:bg-green-600 active:text-white">
                                 INTERVIEW
                             </button>
+
                             <button
-                                class="px-4 py-1 text-sm border border-red-500 text-red-600 rounded-md hover:bg-red-50">
+                                class="rejected-btn px-4 py-2 text-sm font-semibold border border-red-500 text-red-600 rounded-md active:bg-red-600 active:text-white">
                                 REJECTED
                             </button>
                         </div>
 
                     </div>
 
-                    <div class="border rounded-lg p-6 relative">
+                    <div class="job-card border rounded-lg p-6 relative" data-status="all">
 
-                        <!-- Delete -->
+                        <!-- Delete-btn -->
                         <button
-                            class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-md hover:bg-red-50 text-gray-400 hover:text-red-600 transition">
+                            class="delete-btn absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-md hover:bg-red-50 text-gray-400 hover:text-red-600 transition">
                             <i class="fa-solid fa-trash text-sm"></i>
                         </button>
 
                         <h3 class="font-semibold text-gray-800">
-                            Mobile First Corp
+                            cloudSync Inc
                         </h3>
 
                         <p class="text-sm text-gray-500 mb-2">
-                            React Native Developer
+                            Backend Developer
                         </p>
 
-                        <p class="text-sm text-gray-500 mb-3">
-                            Remote • Full-time • $130,000 - $175,000
-                        </p>
+                        <ul class="flex items-center text-sm text-gray-500 mb-3">
+                            <li class="flex items-center">
+                                Remote
+                                <span class="mx-2 w-1 h-1 bg-gray-500 rounded-full inline-block"></span>
+                            </li>
+                            <li class="flex items-center">
+                                Full-time
+                                <span class="mx-2 w-1 h-1 bg-gray-500 rounded-full inline-block"></span>
+                            </li>
+                            <li>$51,000 - $110,000</li>
+                        </ul>
 
                         <span
-                            class="inline-block text-xs px-3 py-1 rounded-md border border-blue-500 text-blue-600 mb-3">
+                            class="status-badge inline-block text-sm px-4 py-2 font-semibold rounded-md bg-gray-100 text-gray-800 mb-3">
                             NOT APPLIED
                         </span>
 
                         <p class="text-sm text-gray-600 mb-4">
-                            Build cross-platform mobile applications using React Native.
-                            Work on products used by millions of users worldwide.
+                            Design scalable REST APIs using Node.js and Express.
+                            Maintain secure authentication systems and optimize database performance.
                         </p>
 
                         <div class="flex gap-3">
                             <button
-                                class="px-4 py-1 text-sm border border-green-500 text-green-600 rounded-md hover:bg-green-50">
+                                class="interview-btn px-4 py-2 text-sm font-semibold border border-green-500 text-green-600 rounded-md active:bg-green-600 active:text-white">
                                 INTERVIEW
                             </button>
+
                             <button
-                                class="px-4 py-1 text-sm border border-red-500 text-red-600 rounded-md hover:bg-red-50">
+                                class="rejected-btn px-4 py-2 text-sm font-semibold border border-red-500 text-red-600 rounded-md active:bg-red-600 active:text-white">
                                 REJECTED
                             </button>
                         </div>
 
                     </div>
 
-                    <div class="border rounded-lg p-6 relative">
+                    <div class="job-card border rounded-lg p-6 relative" data-status="all">
 
-                        <!-- Delete -->
+                        <!-- Delete-btn -->
                         <button
-                            class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-md hover:bg-red-50 text-gray-400 hover:text-red-600 transition">
+                            class="delete-btn absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-md hover:bg-red-50 text-gray-400 hover:text-red-600 transition">
                             <i class="fa-solid fa-trash text-sm"></i>
                         </button>
 
                         <h3 class="font-semibold text-gray-800">
-                            Mobile First Corp
+                            InnoTech Labs
                         </h3>
 
                         <p class="text-sm text-gray-500 mb-2">
-                            React Native Developer
+                            UI/UX Engineer
                         </p>
 
-                        <p class="text-sm text-gray-500 mb-3">
-                            Remote • Full-time • $130,000 - $175,000
-                        </p>
+                        <ul class="flex items-center text-sm text-gray-500 mb-3">
+                            <li class="flex items-center">
+                                Remote
+                                <span class="mx-2 w-1 h-1 bg-gray-500 rounded-full inline-block"></span>
+                            </li>
+                            <li class="flex items-center">
+                                Full-time
+                                <span class="mx-2 w-1 h-1 bg-gray-500 rounded-full inline-block"></span>
+                            </li>
+                            <li>$39,000 - $80,000</li>
+                        </ul>
 
                         <span
-                            class="inline-block text-xs px-3 py-1 rounded-md border border-blue-500 text-blue-600 mb-3">
+                            class="status-badge inline-block text-sm px-4 py-2 font-semibold rounded-md bg-gray-100 text-gray-800 mb-3">
                             NOT APPLIED
                         </span>
 
                         <p class="text-sm text-gray-600 mb-4">
-                            Build cross-platform mobile applications using React Native.
-                            Work on products used by millions of users worldwide.
+                            Create user-centered designs and interactive prototypes for web and mobile apps.
+                            Conduct usability testing and improve user journey based on feedback
                         </p>
 
                         <div class="flex gap-3">
                             <button
-                                class="px-4 py-1 text-sm border border-green-500 text-green-600 rounded-md hover:bg-green-50">
+                                class="interview-btn px-4 py-2 text-sm font-semibold border border-green-500 text-green-600 rounded-md active:bg-green-600 active:text-white">
                                 INTERVIEW
                             </button>
+
                             <button
-                                class="px-4 py-1 text-sm border border-red-500 text-red-600 rounded-md hover:bg-red-50">
+                                class="rejected-btn px-4 py-2 text-sm font-semibold border border-red-500 text-red-600 rounded-md active:bg-red-600 active:text-white">
                                 REJECTED
                             </button>
                         </div>
 
                     </div>
 
-                    <div class="border rounded-lg p-6 relative">
+                    <div class="job-card border rounded-lg p-6 relative" data-status="all">
 
-                        <!-- Delete -->
+                        <!-- Delete-btn -->
                         <button
-                            class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-md hover:bg-red-50 text-gray-400 hover:text-red-600 transition">
+                            class="delete-btn absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-md hover:bg-red-50 text-gray-400 hover:text-red-600 transition">
                             <i class="fa-solid fa-trash text-sm"></i>
                         </button>
 
                         <h3 class="font-semibold text-gray-800">
-                            Mobile First Corp
+                            MegaCorps Solutions
                         </h3>
 
                         <p class="text-sm text-gray-500 mb-2">
-                            React Native Developer
+                            JavaScript Developer
                         </p>
 
-                        <p class="text-sm text-gray-500 mb-3">
-                            Remote • Full-time • $130,000 - $175,000
-                        </p>
+                        <ul class="flex items-center text-sm text-gray-500 mb-3">
+                            <li class="flex items-center">
+                                Remote
+                                <span class="mx-2 w-1 h-1 bg-gray-500 rounded-full inline-block"></span>
+                            </li>
+                            <li class="flex items-center">
+                                Full-time
+                                <span class="mx-2 w-1 h-1 bg-gray-500 rounded-full inline-block"></span>
+                            </li>
+                            <li>$128,000 - $155,000</li>
+                        </ul>
 
                         <span
-                            class="inline-block text-xs px-3 py-1 rounded-md border border-blue-500 text-blue-600 mb-3">
+                            class="status-badge inline-block text-sm px-4 py-2 font-semibold rounded-md bg-gray-100 text-gray-800 mb-3">
                             NOT APPLIED
                         </span>
 
                         <p class="text-sm text-gray-600 mb-4">
-                            Build cross-platform mobile applications using React Native.
-                            Work on products used by millions of users worldwide.
+                            Build and maintain web applications using modern JavaScript frameworks.
+                            Collaborate with cross-functional teams to deliver high-quality products.
                         </p>
 
                         <div class="flex gap-3">
                             <button
-                                class="px-4 py-1 text-sm border border-green-500 text-green-600 rounded-md hover:bg-green-50">
+                                class="interview-btn px-4 py-2 text-sm font-semibold border border-green-500 text-green-600 rounded-md active:bg-green-600 active:text-white">
                                 INTERVIEW
                             </button>
+
                             <button
-                                class="px-4 py-1 text-sm border border-red-500 text-red-600 rounded-md hover:bg-red-50">
+                                class="rejected-btn px-4 py-2 text-sm font-semibold border border-red-500 text-red-600 rounded-md active:bg-red-600 active:text-white">
                                 REJECTED
                             </button>
                         </div>
 
                     </div>
 
-                    <div class="border rounded-lg p-6 relative">
+                    <div class="job-card border rounded-lg p-6 relative" data-status="all">
 
-                        <!-- Delete -->
+                        <!-- Delete-btn -->
                         <button
-                            class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-md hover:bg-red-50 text-gray-400 hover:text-red-600 transition">
+                            class="delete-btn absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-md hover:bg-red-50 text-gray-400 hover:text-red-600 transition">
                             <i class="fa-solid fa-trash text-sm"></i>
                         </button>
 
+
                         <h3 class="font-semibold text-gray-800">
-                            Mobile First Corp
+                            Startup Hub
                         </h3>
 
                         <p class="text-sm text-gray-500 mb-2">
-                            React Native Developer
+                            Software Engineer
                         </p>
 
-                        <p class="text-sm text-gray-500 mb-3">
-                            Remote • Full-time • $130,000 - $175,000
-                        </p>
+                        <ul class="flex items-center text-sm text-gray-500 mb-3">
+                            <li class="flex items-center">
+                                Remote
+                                <span class="mx-2 w-1 h-1 bg-gray-500 rounded-full inline-block"></span>
+                            </li>
+                            <li class="flex items-center">
+                                Full-time
+                                <span class="mx-2 w-1 h-1 bg-gray-500 rounded-full inline-block"></span>
+                            </li>
+                            <li>$115,000 - $175,000</li>
+                        </ul>
 
                         <span
-                            class="inline-block text-xs px-3 py-1 rounded-md border border-blue-500 text-blue-600 mb-3">
+                            class="status-badge inline-block text-sm px-4 py-2 font-semibold rounded-md bg-gray-100 text-gray-800 mb-3">
                             NOT APPLIED
                         </span>
 
+                        <ul class="flex items-center text-sm text-gray-500 mb-3">
+                            <li class="flex items-center">
+                                Remote
+                                <span class="mx-2 w-1 h-1 bg-gray-500 rounded-full inline-block"></span>
+                            </li>
+                            <li class="flex items-center">
+                                Full-time
+                                <span class="mx-2 w-1 h-1 bg-gray-500 rounded-full inline-block"></span>
+                            </li>
+                            <li>$11,000 - $17,000</li>
+                        </ul>
+
                         <p class="text-sm text-gray-600 mb-4">
-                            Build cross-platform mobile applications using React Native.
-                            Work on products used by millions of users worldwide.
+                            Develop high-quality software solutions following best coding practices.
+                            Participate in code reviews and contribute to continuous improvement.
                         </p>
 
                         <div class="flex gap-3">
                             <button
-                                class="px-4 py-1 text-sm border border-green-500 text-green-600 rounded-md hover:bg-green-50">
+                                class="interview-btn px-4 py-2 text-sm font-semibold border border-green-500 text-green-600 rounded-md active:bg-green-600 active:text-white">
                                 INTERVIEW
                             </button>
+
                             <button
-                                class="px-4 py-1 text-sm border border-red-500 text-red-600 rounded-md hover:bg-red-50">
+                                class="rejected-btn px-4 py-2 text-sm font-semibold border border-red-500 text-red-600 rounded-md active:bg-red-600 active:text-white">
                                 REJECTED
                             </button>
                         </div>
 
                     </div>
 
-                    <div class="border rounded-lg p-6 relative">
+                    <div class="job-card border rounded-lg p-6 relative" data-status="all">
 
-                        <!-- Delete -->
+                        <!-- Delete-btn -->
                         <button
-                            class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-md hover:bg-red-50 text-gray-400 hover:text-red-600 transition">
+                            class="delete-btn absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-md hover:bg-red-50 text-gray-400 hover:text-red-600 transition">
                             <i class="fa-solid fa-trash text-sm"></i>
                         </button>
 
                         <h3 class="font-semibold text-gray-800">
-                            Mobile First Corp
+                            Tech Innovators
                         </h3>
                         <p class="text-sm text-gray-500 mb-2">
-                            React Native Developer
+                            Frontend Developer
                         </p>
-                        <p class="text-sm text-gray-500 mb-3">
-                            Remote • Full-time • $130,000 - $175,000
-                        </p>
+                        <ul class="flex items-center text-sm text-gray-500 mb-3">
+                            <li class="flex items-center">
+                                Remote
+                                <span class="mx-2 w-1 h-1 bg-gray-500 rounded-full inline-block"></span>
+                            </li>
+                            <li class="flex items-center">
+                                Full-time
+                                <span class="mx-2 w-1 h-1 bg-gray-500 rounded-full inline-block"></span>
+                            </li>
+                            <li>$45,000 - $108,000</li>
+                        </ul>
                         <span
-                            class="inline-block text-xs px-3 py-1 rounded-md border border-blue-500 text-blue-600 mb-3">
+                            class="status-badge inline-block text-sm px-4 py-2 font-semibold rounded-md bg-gray-100 text-gray-800 mb-3">
                             NOT APPLIED
                         </span>
 
                         <p class="text-sm text-gray-600 mb-4">
-                            Build cross-platform mobile applications using React Native.
-                            Work on products used by millions of users worldwide.
+                            Develop modern web interfaces using React and Tailwind CSS.
+                            Ensure high performance and pixel-perfect implementation across devices.
                         </p>
 
                         <div class="flex gap-3">
                             <button
-                                class="px-4 py-1 text-sm border border-green-500 text-green-600 rounded-md hover:bg-green-50">
+                                class="interview-btn px-4 py-2 text-sm font-semibold border border-green-500 text-green-600 rounded-md active:bg-green-600 active:text-white">
                                 INTERVIEW
                             </button>
+
                             <button
-                                class="px-4 py-1 text-sm border border-red-500 text-red-600 rounded-md hover:bg-red-50">
+                                class="rejected-btn px-4 py-2 text-sm font-semibold border border-red-500 text-red-600 rounded-md active:bg-red-600 active:text-white">
                                 REJECTED
                             </button>
                         </div>
